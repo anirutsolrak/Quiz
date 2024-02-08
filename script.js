@@ -1,52 +1,92 @@
 const perguntas = [
     {
         pergunta: "1. Qual é o nome completo do líder do BTS?",
-        respostas: ['Kim Taehyung', "Kim Namjoon", 'Kim Seokjin'],
+        respostas: [
+            'Kim Taehyung',
+            "Kim Namjoon",
+            'Kim Seokjin',
+        ],
         correta: 1
     },
     {
         pergunta: "2. Qual música do BTS possui o recorde de visualizações em 24 horas no YouTube?",
-        respostas: ['Boy With Luv', "Dynamite", 'Butter'],
+        respostas: [
+            'Boy With Luv',
+            "Dynamite",
+            'Butter',
+        ],
         correta: 2
     },
     {
         pergunta: "3. Quantos membros o BTS possui?",
-        respostas: ['6', "7", '8'],
+        respostas: [
+            '6',
+            "7",
+            '8',
+        ],
         correta: 1
     },
     {
         pergunta: "4. Qual é o nome da série de documentários sobre o BTS lançada pela plataforma de streaming da Big Hit Entertainment?",
-        respostas: ['Burn the Stage', "Break the Silence", 'Bring the Soul'],
+        respostas: [
+            'Burn the Stage',
+            "Break the Silence",
+            'Bring the Soul',
+        ],
         correta: 0
     },
     {
         pergunta: "5. Em qual ano o BTS debutou oficialmente?",
-        respostas: ['2011', "2013", '2015'],
+        respostas: [
+            '2011',
+            "2013",
+            '2015',
+        ],
         correta: 1
     },
     {
         pergunta: "6. Qual é o nome do primeiro álbum de estúdio do BTS?",
-        respostas: ['Wings', "Love Yourself: Her", 'Dark & Wild'],
+        respostas: [
+            'Wings',
+            "Love Yourself: Her",
+            'Dark & Wild',
+        ],
         correta: 2
     },
     {
         pergunta: "7. Qual é o nome do fandom oficial do BTS?",
-        respostas: ['ARMY', "BLINK", 'EXO-L'],
+        respostas: [
+            'ARMY',
+            "BLINK",
+            'EXO-L',
+        ],
         correta: 0
     },
     {
         pergunta: "8. Quem é o dançarino principal do BTS?",
-        respostas: ['J-Hope', "Jimin", 'Jungkook'],
+        respostas: [
+            'J-Hope',
+            "Jimin",
+            'Jungkook',
+        ],
         correta: 1
     },
     {
         pergunta: "9. Qual é o nome do primeiro single do BTS a alcançar o topo da Billboard Hot 100?",
-        respostas: ['Boy With Luv', "Dynamite", 'Butter'],
+        respostas: [
+            'Boy With Luv',
+            "Dynamite",
+            'Butter',
+        ],
         correta: 1
     },
     {
         pergunta: "10. Qual é o nome do álbum que contém a música 'Fake Love'?",
-        respostas: ['Wings', "Love Yourself: Tear", 'Map of the Soul: 7'],
+        respostas: [
+            'Wings',
+            "Love Yourself: Tear",
+            'Map of the Soul: 7',
+        ],
         correta: 1
     }
 ];
@@ -84,7 +124,15 @@ for (const item of perguntas) {
     quiz.appendChild(quizItem);
 }
 
-const enviarRespostasButton = document.querySelector('.enviar-button');
+const enviarRespostasButton = document.createElement('button');
+enviarRespostasButton.textContent = 'Enviar';
+enviarRespostasButton.classList.add('enviar-button');
+enviarRespostasButton.style.marginTop = '20px';
+enviarRespostasButton.style.backgroundColor = '#6F35A5';
+enviarRespostasButton.style.color = '#FFFFFF';
+enviarRespostasButton.style.padding = '10px 20px';
+enviarRespostasButton.style.border = 'none';
+enviarRespostasButton.style.borderRadius = '5px';
 enviarRespostasButton.addEventListener('click', () => {
     const inputs = document.querySelectorAll('input[type="radio"]');
     let quantidadeCorretas = 0;
@@ -98,4 +146,14 @@ enviarRespostasButton.addEventListener('click', () => {
     });
     mostrarTotal.textContent = quantidadeCorretas + ' de ' + totalDePerguntas;
     window.alert('Você acertou ' + quantidadeCorretas + ' de ' + totalDePerguntas + '.');
+
+    // Desmarcar todas as respostas
+    inputs.forEach(input => {
+        input.checked = false;
+    });
+    
+    // Zerar o número de respostas corretas
+    corretas.clear();
+    mostrarTotal.textContent = corretas.size + ' de ' + totalDePerguntas;
 });
+quiz.appendChild(enviarRespostasButton);
