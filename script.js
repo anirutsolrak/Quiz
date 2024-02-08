@@ -121,20 +121,34 @@ for (const item of perguntas) {
     quizItem.querySelector('dl').appendChild(dt)
   }
 
-
   quizItem.querySelector('dl dt').remove()
-
 
   // coloca a pergunta na tela
   quiz.appendChild(quizItem)
 }
 
+// Adiciona o botão "Jogar Novamente"
+const jogarNovamenteButton = document.createElement('button');
+jogarNovamenteButton.textContent = 'Jogar Novamente';
+jogarNovamenteButton.style.marginTop = '20px'; // Adiciona um espaço entre o botão e o último item do quiz
+jogarNovamenteButton.style.backgroundColor = '#6F35A5'; // Cor de fundo roxo
+jogarNovamenteButton.style.color = '#FFFFFF'; // Cor do texto branca
+jogarNovamenteButton.style.padding = '10px 20px'; // Adiciona um espaçamento interno ao botão
+jogarNovamenteButton.style.border = 'none'; // Remove a borda do botão
+jogarNovamenteButton.style.borderRadius = '5px'; // Adiciona um arredondamento aos cantos do botão
+jogarNovamenteButton.addEventListener('click', () => {
+    // Desmarcar todas as opções
+    const inputs = document.querySelectorAll('input[type="radio"]');
+    inputs.forEach(input => {
+        input.checked = false;
+    });
+    // Limpar o conjunto de respostas corretas
+    corretas.clear();
+    // Atualizar a exibição do total de acertos
+    mostrarTotal.textContent = corretas.size + ' de ' + totalDePerguntas;
+    // Exibir o alerta com a mensagem de parabéns e a quantidade de respostas corretas
+    window.alert('Parabéns! Você acertou ' + corretas.size + ' de 10.');
+});
 
-
-
-
-
-
-
-
-
+// Adiciona o botão "Jogar Novamente" ao final do quiz
+quiz.appendChild(jogarNovamenteButton);
