@@ -114,7 +114,7 @@
             border-radius: 50%;
         }
 
-        #enviar {
+        .enviar-button {
             margin-top: 20px;
             background-color: #6F35A5;
             color: #FFFFFF;
@@ -122,6 +122,10 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+        }
+
+        .enviar-button:hover {
+            background-color: #8C3BFF;
         }
     </style>
 </head>
@@ -151,11 +155,9 @@
         <span>0 de 10</span>
     </div>
 
-    <button id="enviar">Enviar Respostas e Novo Jogo</button>
+    <button class="enviar-button">Enviar</button>
 
-    <script>
-        // JavaScript aqui
-    </script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
